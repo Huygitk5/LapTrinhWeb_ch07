@@ -42,7 +42,7 @@
 
                 <td class="right">$<%= item.getProduct().getPrice() %></td>
 
-                <td class="right">$<%= item.getTotalCurrencyFormat() %></td>
+                <td class="right"><%= item.getTotalCurrencyFormat() %></td>
 
                 <td>
                     <form action="cart" method="post">
