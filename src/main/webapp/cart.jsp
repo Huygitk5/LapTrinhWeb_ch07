@@ -21,35 +21,38 @@
             </tr>
 
             <c:choose>
-                <%-- Vòng lặp duyệt qua từng sản phẩm --%>
-                <c:forEach var="item" items="${sessionScope.cart.items}">
-                    <tr>
-                        <td>
-                            <form action="cart" method="post">
-                                <input type="hidden" name="action" value="update">
-                                <input type="hidden" name="productCode" value="${item.product.code}">
-                                <input type="text" name="quantity" value="${item.quantity}">
-                                <input type="submit" value="Update">
-                            </form>
-                        </td>
+                <%-- TRƯỜNG HỢP 1: Giỏ hàng CÓ sản phẩm --%>
+                <%-- Kiểm tra count > 0 hoặc items không rỗng --%>
+                <c:when test="${sessionScope.cart.items.size() > 0}">
+                    <c:forEach var="item" items="${sessionScope.cart.items}">
+                        <tr>
+                            <td>
+                                <form action="cart" method="post">
+                                    <input type="hidden" name="action" value="update">
+                                    <input type="hidden" name="productCode" value="${item.product.code}">
+                                    <input type="text" name="quantity" value="${item.quantity}">
+                                    <input type="submit" value="Update">
+                                </form>
+                            </td>
 
-                        <td>${item.product.description}</td>
+                            <td>${item.product.description}</td>
 
-                        <td class="right">$${item.product.price}</td>
+                            <td class="right">$${item.product.price}</td>
 
-                        <td class="right">${item.totalCurrencyFormat}</td>
+                            <td class="right">${item.totalCurrencyFormat}</td>
 
-                        <td>
-                            <form action="cart" method="post">
-                                <input type="hidden" name="action" value="remove">
-                                <input type="hidden" name="productCode" value="${item.product.code}">
-                                <input type="submit" value="Remove Item">
-                            </form>
-                        </td>
-                    </tr>
-                </c:forEach>
+                            <td>
+                                <form action="cart" method="post">
+                                    <input type="hidden" name="action" value="remove">
+                                    <input type="hidden" name="productCode" value="${item.product.code}">
+                                    <input type="submit" value="Remove Item">
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:when>
                 
-                <%-- Trường hợp giỏ hàng trống (tương ứng với lệnh else cũ) --%>
+                <%-- TRƯỜNG HỢP 2: Giỏ hàng trống (Otherwise) --%>
                 <c:otherwise>
                     <tr>
                         <td colspan="5">Cart is empty</td>
