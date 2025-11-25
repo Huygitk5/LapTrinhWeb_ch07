@@ -49,10 +49,10 @@ public class CartServlet extends HttpServlet {
             if (productCode.equals("8601")) {
                 product.setDescription("86 (the band) - True Life Songs and Pictures");
                 product.setPrice(14.95);
-            } else if (productCode.equals("pf02")) {
+            } else if (productCode.equals("pf01")) {
                 product.setDescription("Paddlefoot - The first CD");
                 product.setPrice(12.95);
-            } else if (productCode.equals("pf03")) {
+            } else if (productCode.equals("pf02")) {
                 product.setDescription("Paddlefoot - The second CD");
                 product.setPrice(14.95);
             } else if (productCode.equals("jr01")) {

@@ -30,7 +30,7 @@
                 <td class ="right">$12.95</td>
                 <td>
                     <form action="cart" method="post">                        
-                        <input type="hidden" name="productCode" value="pf02">
+                        <input type="hidden" name="productCode" value="pf01">
                         <button type="submit" name="action" value="add">Add To Cart</button>
                     </form>
                 </td>
@@ -40,7 +40,7 @@
                 <td class ="right">$14.95</td>
                 <td>
                     <form action="cart" method="post">
-                        <input type="hidden" name="productCode" value="pf03">
+                        <input type="hidden" name="productCode" value="pf02">
                         <button type="submit" name="action" value="add">Add To Cart</button>
                     </form>
                 </td>
